@@ -49,7 +49,7 @@ function Header() {
           </li>
           <li className="nav-item">
             <NavDropdown title="Well-being" id="basic-nav-dropdown" className="mx-3">
-              <NavDropdown.Item href="#action/3.1">Teen Health</NavDropdown.Item>
+              <NavDropdown.Item href="/teenhealth">Teen Health</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Children's health</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Diet & Weight Management</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">Pregnancy</NavDropdown.Item>

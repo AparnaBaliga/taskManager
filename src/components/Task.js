@@ -15,35 +15,6 @@ function TaskManager() {
     setPatients(updatedPatients);
   };
 
-  return (
-    <div style={containerStyle}>
-      <h1>Patient Task Manager</h1>
-      <PatientForm
-        addPatient={addPatient}
-        editIndex={editIndex}
-        patients={patients}
-        setPatients={setPatients}
-        setEditIndex={setEditIndex}
-      />
-      <PatientList
-        patients={patients}
-        removePatient={removePatient}
-        setEditIndex={setEditIndex}
-      />
-    </div>
-  );
-}
-
-const containerStyle = {
-  maxWidth: '600px',
-  margin: '0 auto',
-  padding: '20px',
-  backgroundColor: '#f7f7f7',
-  borderRadius: '8px',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-};
-
-function PatientForm({ addPatient, editIndex, patients, setPatients, setEditIndex }) {
   const [newPatient, setNewPatient] = useState({
     name: '',
     disorder: '',
@@ -80,106 +51,144 @@ function PatientForm({ addPatient, editIndex, patients, setPatients, setEditInde
   };
 
   return (
-    <form onSubmit={handleSubmit} style={formStyle}>
-      <input
-        type="text"
-        name="name"
-        value={newPatient.name}
-        onChange={handleInputChange}
-        placeholder="Patient Name"
-        style={inputStyle}
-      />
-      <input
-        type="text"
-        name="disorder"
-        value={newPatient.disorder}
-        onChange={handleInputChange}
-        placeholder="Disorder/Condition"
-        style={inputStyle}
-      />
-      <input
-        type="text"
-        name="medication"
-        value={newPatient.medication}
-        onChange={handleInputChange}
-        placeholder="Medication"
-        style={inputStyle}
-      />
-      <input
-        type="text"
-        name="checkup"
-        value={newPatient.checkup}
-        onChange={handleInputChange}
-        placeholder="Regular Checkup"
-        style={inputStyle}
-      />
-      <button type="submit" style={buttonStyle}>
-        {editIndex !== -1 ? 'Save Changes' : 'Add Patient'}
-      </button>
-    </form>
+    <div style={containerStyle}>
+      <h1 style={headerStyle}>Patient Task Manager</h1>
+      <div style={formContainerStyle}>
+        <h2 style={formHeaderStyle}>{editIndex !== -1 ? 'Edit Patient' : 'Add New Patient'}</h2>
+        <form onSubmit={handleSubmit} style={formStyle}>
+          <input
+            type="text"
+            name="name"
+            value={newPatient.name}
+            onChange={handleInputChange}
+            placeholder="Patient Name"
+            style={inputStyle}
+          />
+          <input
+            type="text"
+            name="disorder"
+            value={newPatient.disorder}
+            onChange={handleInputChange}
+            placeholder="Disorder/Condition"
+            style={inputStyle}
+          />
+          <input
+            type="text"
+            name="medication"
+            value={newPatient.medication}
+            onChange={handleInputChange}
+            placeholder="Medication"
+            style={inputStyle}
+          />
+          <input
+            type="text"
+            name="checkup"
+            value={newPatient.checkup}
+            onChange={handleInputChange}
+            placeholder="Regular Checkup"
+            style={inputStyle}
+          />
+          <button type="submit" style={buttonStyle}>
+            {editIndex !== -1 ? 'Save Changes' : 'Add Patient'}
+          </button>
+        </form>
+      </div>
+      <div style={listContainerStyle}>
+        <ul style={listStyle}>
+          {patients.map((patient, index) => (
+            <li style={listItemStyle} key={index}>
+              <div>
+                <strong>Name:</strong> {patient.name}
+              </div>
+              <div>
+                <strong>Disorder/Condition:</strong> {patient.disorder}
+              </div>
+              <div>
+                <strong>Medication:</strong> {patient.medication}
+              </div>
+              <div>
+                <strong>Regular Checkup:</strong> {patient.checkup}
+              </div>
+              <div style={buttonContainerStyle}>
+                <button onClick={() => setEditIndex(index)} style={editButtonStyle}>
+                  Edit
+                </button>
+                <button onClick={() => removePatient(index)} style={deleteButtonStyle}>
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
-
-function PatientList({ patients, removePatient, setEditIndex }) {
-  return (
-    <ul style={listStyle}>
-      {patients.map((patient, index) => (
-        <li style={listItemStyle} key={index}>
-          <div>
-            <strong>Name:</strong> {patient.name}
-          </div>
-          <div>
-            <strong>Disorder/Condition:</strong> {patient.disorder}
-          </div>
-          <div>
-            <strong>Medication:</strong> {patient.medication}
-          </div>
-          <div>
-            <strong>Regular Checkup:</strong> {patient.checkup}
-          </div>
-          <div style={buttonContainerStyle}>
-            <button onClick={() => setEditIndex(index)} style={editButtonStyle}>
-              Edit
-            </button>
-            <button onClick={() => removePatient(index)} style={deleteButtonStyle}>
-              Delete
-            </button>
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
-}
-const updatedListItemStyle = {
-  backgroundColor: '#ffffff',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  borderRadius: '4px',
-  padding: '20px', // Increase the padding for a larger box
-  marginBottom: '15px',
-  display: 'flex',
-  flexDirection: 'column', // Stack items vertically
-  gap: '10px', // Add vertical gap between elements
-};
-const formStyle = {
+const formContainerStyle = {
+  width: '100%',
   marginBottom: '20px',
+};
+
+const containerStyle = {
+  maxWidth: '800px',
+  margin: '0 auto',
+  padding: '20px',
+  backgroundColor: '#f7f7f7',
+  borderRadius: '8px',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+};
+
+const headerStyle = {
+  color: '#007bff',
+  marginBottom: '15px',
+  fontFamily: 'Roboto, sans-serif', // Updated font-family
+};
+
+const formHeaderStyle = {
+  color: '#007bff',
+  marginBottom: '10px',
+  fontFamily: 'Roboto, sans-serif', // Updated font-family
+};
+
+
+const formStyle = {
+  backgroundColor: '#ffffff',
+  borderRadius: '8px',
+  padding: '20px',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
 };
 
 const inputStyle = {
   display: 'block',
   width: '100%',
-  padding: '8px',
+  padding: '10px',
   marginBottom: '10px',
-  border: '1px solid #ccc',
-  borderRadius: '4px',
+  border: 'none',
+  borderRadius: '8px',
+  boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
 };
 
 const buttonStyle = {
-  padding: '8px 12px',
+  padding: '10px 15px',
   backgroundColor: '#007bff',
   color: 'white',
   border: 'none',
-  borderRadius: '4px',
+  borderRadius: '20px',
   cursor: 'pointer',
+  fontFamily: 'Roboto, sans-serif', // Updated font-family
+};
+
+
+const listContainerStyle = {
+  width: '100%',
+};
+
+const listHeaderStyle = {
+  color: '#007bff',
+  marginBottom: '15px',
 };
 
 const listStyle = {
@@ -190,18 +199,19 @@ const listStyle = {
 const listItemStyle = {
   backgroundColor: '#ffffff',
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  borderRadius: '4px',
-  padding: '15px',
+  borderRadius: '8px',
+  padding: '20px',
   marginBottom: '15px',
   display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  flexDirection: 'column',
+  gap: '10px',
+  fontFamily: 'Roboto, sans-serif', // Updated font-family
 };
 
 const buttonContainerStyle = {
   display: 'flex',
-  gap: '10px', // Adding gap between buttons
-  alignItems: 'center', // Vertically align buttons
+  gap: '10px',
+  alignItems: 'center',
 };
 
 const deleteButtonStyle = {
@@ -209,7 +219,9 @@ const deleteButtonStyle = {
   color: 'white',
   border: 'none',
   cursor: 'pointer',
-  padding: '8px 12px', // Adjusting padding for better spacing
+  padding: '8px 12px',
+  borderRadius: '20px',
+  fontFamily: 'Roboto, sans-serif', // Updated font-family
 };
 
 const editButtonStyle = {
@@ -217,14 +229,16 @@ const editButtonStyle = {
   color: 'white',
   border: 'none',
   cursor: 'pointer',
-  padding: '8px 12px', // Adjusting padding for better spacing
+  padding: '8px 12px',
+  borderRadius: '20px',
+  fontFamily: 'Roboto, sans-serif', // Updated font-family
 };
 
 const patientInfoStyle = {
-  marginBottom: '5px', // Adding space between patient info elements
+  marginBottom: '5px',
 };
-
-export default TaskManager;
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<TaskManager />, rootElement);
+
+export default TaskManager;

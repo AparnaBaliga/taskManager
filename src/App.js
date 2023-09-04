@@ -14,6 +14,8 @@ import Fever from './components/Conditions/Fever'
 import Task from './components/Task'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Pills from './components/Drugs/Pills'
+import TeenHealth from './components/Wellbeing/TeenHealth'
+import Footer from './components/Footer'
 
 function App(){
     return(
@@ -33,7 +35,10 @@ function App(){
             <Route path="/fever" element={<Fever/>} />
             <Route path="/pills" element={<Pills/>}/>
             <Route path="/fever" element={<Fever/>} />
+            <Route path="/teenhealth" element={<TeenHealth/>} />
+
           </Routes>
+          <Footer></Footer>
         </BrowserRouter>
       </>
     )

@@ -4,7 +4,7 @@ import "react-router-dom"
 import { Card, CardGroup, Container } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-// import cancerImage from 'https://mehtahospital.com/blog/wp-content/uploads/2021/04/cancer-blog-image.jpg'; // Replace with the actual path to your image
+
 
 function Cancer() {
   const backgroundStyle = {
@@ -12,7 +12,7 @@ function Cancer() {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    /* Add other background-related styles if needed */
+    
   };
 
   const cardStyle = {
@@ -38,7 +38,7 @@ function Cancer() {
     height: 'auto',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-    marginBottom: '20px', // Adjust the margin value as needed
+    marginBottom: '20px', 
   };
   
 
@@ -95,7 +95,7 @@ function Cancer() {
 
         <h3 style={{
           borderRadius: '12px 12px 0 0', // top-left, top-right, bottom-right, bottom-left
-          backgroundColor: '#f0f0f0',     // Adding a background color to illustrate the effect
+          backgroundColor: '#f0f0f0',     // Adding a background color 
           padding: '10px',
           margin: '10px 0',
         }}>
@@ -157,7 +157,7 @@ function Cancer() {
 
       <h3 style={{
           borderRadius: '12px 12px 0 0', // top-left, top-right, bottom-right, bottom-left
-          backgroundColor: '#f0f0f0',     // Adding a background color to illustrate the effect
+          backgroundColor: '#f0f0f0',     
           padding: '10px',
           margin: '10px 0',
         }}>
@@ -191,8 +191,8 @@ function Cancer() {
       </CardGroup>
 
       <h3 style={{
-          borderRadius: '12px 12px 0 0', // top-left, top-right, bottom-right, bottom-left
-          backgroundColor: '#f0f0f0',     // Adding a background color to illustrate the effect
+          borderRadius: '12px 12px 0 0', 
+          backgroundColor: '#f0f0f0',     
           padding: '10px',
           margin: '10px 0',
         }}>

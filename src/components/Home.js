@@ -1,15 +1,18 @@
 import React from 'react';
-import { Carousel, Card, CardDeck } from 'react-bootstrap';
+import { Carousel, Card, Row, Col } from 'react-bootstrap';
+//import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './CSS/Home.css'; // Import your stylesheet for styling
+import Cards from './Card';
 
 const Home = () => {
-    return (
-        <div>
-            <Carousel>
+  return (
+    <div>
+         <Carousel>
                 <Carousel.Item>
                     <img
                         className="d-block w-100" 
-                        src="https://e0.pxfuel.com/wallpapers/996/887/desktop-wallpaper-healthcare-health-care-medical.jpg"
+                        src="https://www.international-patients.com/wp-content/themes/patients/assets/images/slider5.jpg"
                         alt="First slide"
                     />
                     <Carousel.Caption style={{color:'black'}}>
@@ -20,7 +23,7 @@ const Home = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100" style={{height:500}}
-                        src="https://img.freepik.com/free-vector/young-women-exercising-flat-illustration-set_107791-14287.jpg?w=2000"
+                        src="https://images.ctfassets.net/pdf29us7flmy/3n7uoyaRCDXNeHmN6YUydv/72bc696d0b981027834a5d7e32644020/B8095-The-Ultimate-Guide-to-Medical-Field-Jobs-D2-Social.png"
                         alt="Second slide"
                     />
                     <Carousel.Caption style={{color:'black'}}>
@@ -31,7 +34,7 @@ const Home = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100" style={{height:500}}
-                        src="https://hips.hearstapps.com/hmg-prod/images/healthy-food-clean-eating-selection-royalty-free-image-854725370-1553880935.jpg?resize=1200:*"
+                        src="https://www.einfochips.com/blog/wp-content/uploads/2017/12/healthcare-and-machine-learning-the-future-with-possibilities-1.jpg"
                         alt="Third slide"
                     />
                     <Carousel.Caption style={{color:'black'}}>
@@ -40,38 +43,50 @@ const Home = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <div className="container mt-5">
-                <h2>Our Services</h2>
-                    <Card>
-                        <Card.Img variant="top" src="service-1.jpg" />
-                        <Card.Body>
-                            <Card.Title>Cardiology</Card.Title>
-                            <Card.Text>
-                                Expert cardiology services to keep your heart healthy.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card>
-                        <Card.Img variant="top" src="service-2.jpg" />
-                        <Card.Body>
-                            <Card.Title>Orthopedics</Card.Title>
-                            <Card.Text>
-                                Comprehensive orthopedic care for bone and joint issues.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card>
-                        <Card.Img variant="top" src="service-3.jpg" />
-                        <Card.Body>
-                            <Card.Title>Pediatrics</Card.Title>
-                            <Card.Text>
-                                Specialized healthcare for infants, children, and adolescents.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
+
+            <div className="company-section text-center mt-5">
+                <h2>OUR MISSION</h2>
+                <p> Delivering quality healthcare to every doorstep..</p>
             </div>
-        </div>
-    );
+
+      <div className="container mt-5">
+        <h2 className="text-center mb-4">Our Services</h2>
+        <Carousel className="service-carousel">
+          <Carousel.Item>
+            <Row>
+              <Col md={4} className="mb-4">
+                <Card className="service-card">
+                  <Card.Img variant="top" src="http://www.narainamedicalcollege.com/assets/images/new/cardiology.jpg" />
+                  <Card.Body>
+                    <Card.Title>Cardiology</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col md={4} className="mb-4">
+                <Card className="service-card">
+                  <Card.Img variant="top" src="https://ranjithospital.in/images/specilities/ortho.jpg" />
+                  <Card.Body>
+                    <Card.Title>Orthopedics</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col md={4} className="mb-4">
+                <Card className="service-card">
+                  <Card.Img variant="top" src="https://tse3.mm.bing.net/th/id/OIP.bDulLpCnhrxZiaMTN1mPAQHaE6?pid=ImgDet&rs=1" />
+                  <Card.Body>
+                    <Card.Title>Pediatrics</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Carousel.Item>
+          {/* Add more Carousel items for additional services */}
+        </Carousel>
+      </div>
+      <Cards></Cards>
+    
+    </div>
+  );
 };
 
 export default Home;
