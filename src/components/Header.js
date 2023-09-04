@@ -1,11 +1,10 @@
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 // import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom'
 
-function Headers() {
+function Header() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary navbar-nav nav-fill w-100 justify-content-between mx-auto" bg="primary" data-bs-theme="dark">
       <Container>
@@ -29,12 +28,11 @@ function Headers() {
       
           <li className="nav-item ">
             <NavDropdown title="Conditions" id="basic-nav-dropdown" className="mx-3">
-              <NavDropdown.Item href="#action/3.1">Migraine</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Allergies </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Fever</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">HIV/AIDS</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.5">Cancer </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.6">Sore Throat</NavDropdown.Item>
+              <NavDropdown.Item href="/cancer">Cancer</NavDropdown.Item>
+              <NavDropdown.Item href="/allergy">Allergies </NavDropdown.Item>
+              <NavDropdown.Item href="/fever">Fever</NavDropdown.Item>
+              <NavDropdown.Item href="/hiv">HIV/AIDS</NavDropdown.Item>
+              <NavDropdown.Item href="/migraine">Migraine </NavDropdown.Item>
             </NavDropdown>
           </li>
               {/* <NavDropdown.Divider /> */}
@@ -43,10 +41,10 @@ function Headers() {
               </NavDropdown.Item> */}
           <li className="nav-item">
             <NavDropdown title="Drugs & Supplements" id="basic-nav-dropdown" className="mx-3">
-              <NavDropdown.Item href="#action/3.1">Drugs</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Supplements</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Pill Identifier</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Interaction Checker</NavDropdown.Item>
+              <NavDropdown.Item href="/pills">Drugs</NavDropdown.Item>
+              <NavDropdown.Item href="/supplements">Supplements</NavDropdown.Item>
+              <NavDropdown.Item href="identifier">Pill Identifier</NavDropdown.Item>
+              <NavDropdown.Item href="/interaction">Interaction Checker</NavDropdown.Item>
             </NavDropdown>
           </li>
           <li className="nav-item">
@@ -70,4 +68,4 @@ function Headers() {
   );
 }
 
-export default Headers;
+export default Header;
