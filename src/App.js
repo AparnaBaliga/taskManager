@@ -6,22 +6,24 @@ import ContactUs from './components/Contact'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Navbar from './components/Header'
+import Footer from './components/Footer'
 import Migraine from './components/Conditions/Migraine'
 import Allergy from './components/Conditions/Allergy'
 import HIV from './components/Conditions/HIV'
 import Cancer from './components/Conditions/Cancer'
 import Fever from './components/Conditions/Fever'
 import Task from './components/Task'
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-import Pills from './components/Drugs/Pills'
 import TeenHealth from './components/Wellbeing/TeenHealth'
-import Footer from './components/Footer'
-
+import Pills from './components/Drugs/Pills'
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import AddPatient from './components/addpatient'
+import PatientDetails from './components/patientdetails'
 function App(){
     return(
       <>
         <BrowserRouter>
         <Navbar></Navbar>
+
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/contact' element={<ContactUs/>}/>
@@ -31,12 +33,13 @@ function App(){
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/task' element={<Task/>}/>
             <Route path="/cancer" element={<Cancer/>} />
-            <Route path="/hiv" element={<HIV/>}/>
-            <Route path="/fever" element={<Fever/>} />
-            <Route path="/pills" element={<Pills/>}/>
-            <Route path="/fever" element={<Fever/>} />
-            <Route path="/teenhealth" element={<TeenHealth/>} />
-
+            <Route path='/pills' element={<Pills/>}/>
+            <Route path='/add' element={<AddPatient/>}/>
+            <Route path='/get' element={<PatientDetails/>}/>
+        <Route path="/hiv" element={<HIV/>}/>
+        <Route path="/fever" element={<Fever/>} />
+        <Route path="/teenhealth" element={<TeenHealth/>} />
+       
           </Routes>
           <Footer></Footer>
         </BrowserRouter>
